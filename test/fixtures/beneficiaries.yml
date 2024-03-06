@@ -1,7 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  index: MyString
+  name: MyString
+  identification_documen: MyString
+  contact_number: MyString
+  contract_type: MyString
+  string: MyString
 
 two:
-  index: MyString
+  name: MyString
+  identification_documen: MyString
+  contact_number: MyString
+  contract_type: MyString
+  string: MyString

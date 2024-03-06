@@ -1,7 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  index: MyString
+  init_date: 2024-03-06
+  person: one
+  laptop: one
+  end_date: 2024-03-06
 
 two:
-  index: MyString
+  init_date: 2024-03-06
+  person: two
+  laptop: two
+  end_date: 2024-03-06

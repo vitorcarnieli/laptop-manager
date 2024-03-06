@@ -1,19 +1,74 @@
-<nav class="navbar navbar-expand-lg navbar-light p-3">
-  <a class="navbar-brand" href="#">Notebook Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Beneficiários <i class="bi bi-person"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Notebooks <i class="bi bi-laptop"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Vínculos <i class="bi bi-laptop"></i> <i class="bi bi-link-45deg"></i> <i class="bi bi-person"></i> </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light p-4 bg-whitesmoke">
+    <a class="navbar-brand" href="#">Notebook Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Beneficiários <i class="bi bi-person"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Notebooks <i class="bi bi-laptop"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Vínculos <i class="bi bi-link-45deg"></i></a>
+        </li>
+        </ul>
+    </div>
+    </nav>
+</header>
+<section class="container-fluid p-5">
+    <div class="row h-100 justify-content-around">
+        <div class="col-5 bg-whitesmoke p-0 border rounded">
+
+            <p class="text-center display-6 bg-whitesmoke-titles">Notebooks</p>
+            
+            <div class=" mx-auto input-group mb-2 w-75 ">
+                <input type="text" class="form-control bg-whitesmoke border">
+                <span class="input-group-text bg-whitesmoke"><i class="bi bi-search"></i></span>
+            </div>
+
+
+            <div class="container">
+                <div class="row p-2 d-flex justify-content-evenly">
+                    <% @laptops.each do |laptop| %>
+                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2" style="width: 10rem;">
+                            <%= image_tag "black.png" %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= laptop.listed_number %></h5>
+                                <p class="card-text fs-6">Vinculado à: Ninguem</p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-5 bg-whitesmoke p-0 border rounded">
+
+            <p class="text-center display-6 bg-whitesmoke-titles">Beneficiários</p>
+            
+            <div class=" mx-auto input-group mb-2 w-75 ">
+                <input type="text" class="form-control bg-whitesmoke border">
+                <span class="input-group-text bg-whitesmoke"><i class="bi bi-search"></i></span>
+            </div>
+
+
+            <div class="container">
+                <div class="row p-2 d-flex justify-content-evenly">
+                    <div class="card p-2 col-4 bg-whitesmoke-titles border-0 mb-2" style="width: 10rem;">
+                        <%= image_tag "person.png" %>
+                        <div class="card-body">
+                            <h5 class="card-title">Ketherynne</h5>
+                            <p class="card-text fs-6">Vinculado à: 01-00212</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
