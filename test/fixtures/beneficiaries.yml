@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  identification_documen: MyString
+  identification_document: MyString
   contact_number: MyString
   contract_type: MyString
   string: MyString
 
 two:
   name: MyString
-  identification_documen: MyString
+  identification_document: MyString
   contact_number: MyString
   contract_type: MyString
   string: MyString

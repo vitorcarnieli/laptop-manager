@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  init_date: 2024-03-06
+  init_date: 2024-03-07
   person: one
   laptop: one
-  end_date: 2024-03-06
+  end_date: 2024-03-07
 
 two:
-  init_date: 2024-03-06
+  init_date: 2024-03-07
   person: two
   laptop: two
-  end_date: 2024-03-06
+  end_date: 2024-03-07

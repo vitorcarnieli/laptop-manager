@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "home#index"
-
+  resources :beneficiaries
   get 'home/index'
   get 'links/index'
   get 'laptops/index'
