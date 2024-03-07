@@ -5,7 +5,6 @@ class CreateBeneficiaries < ActiveRecord::Migration[7.1]
       t.string :identification_document
       t.string :contact_number
       t.string :contract_type
-      t.string :string
 
       t.timestamps
     end
