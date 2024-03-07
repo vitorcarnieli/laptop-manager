@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row p-2 d-flex justify-content-evenly">
                     <% @beneficiaries.each do |beneficiary| %>
-                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 laptop-card" style="width: 10rem;">
+                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 beneficiary-card" onclick="redirect(<%= beneficiary.id %>)" style="width: 10rem;">
                             <%= image_tag("person.png") %>                            
                             <div class="card-body">
                                 <h5 class="card-title"><%= beneficiary.name.split(" ").first%></h5>
@@ -30,29 +30,29 @@
 
             </div>
         </div>
-        <div class="col-5 bg-whitesmoke p-0 border rounded" style="height: 500px;">
-            <p class="text-center display-6 bg-whitesmoke-titles">Nome</p>
+        <div class="col-5 bg-whitesmoke p-0 border rounded d-none" id="beneficiary-label" style="height: 500px;">
+            <p class="text-center display-6 bg-whitesmoke-titles" id="beneficiary-label-nametitle">Nome</p>
             <div class="container">
                 <div class="row p-2 d-flex">
                     <div class="mb-3 col-12">
                         <label for="exampleInputEmail1" class="form-label">Nome Completo</label>
-                        <input type="email" class="form-control">
+                        <input type="text" class="form-control" disabled id="beneficiary-label-name">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="exampleInputPassword1" class="form-label">Número para Contato</label>
-                        <input type="password" class="form-control">
+                        <input type="text" class="form-control" disabled id="beneficiary-label-contactnumber">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="exampleInputPassword1" class="form-label">Documento de Identificação</label>
-                        <input type="password" class="form-control">
+                        <input type="text" class="form-control" disabled id="beneficiary-label-identifydocument">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="exampleInputPassword1"  class="form-label">Tipo de Contrato</label>
-                        <input type="password" class="form-control" placeholder="Contratado">
+                        <input type="text" class="form-control" disabled placeholder="Contratado" id="beneficiary-label-contracttype">
                     </div>
                     <div class="mb-3 col-8">
                         <label for="exampleInputPassword1"  class="form-label">Notebook Vinculado</label>
-                        <input type="password" class="form-control">
+                        <input type="text" class="form-control" disabled>
                     </div>
                     <div class="my-3"></div>
                     <div class="col-12 justify-content-around text-center">
@@ -73,3 +73,11 @@
 </section>
 
 
+<script>
+
+    function redirect(id) {
+        var a = document.createElement("a")
+        a.href = "beneficiaries/"+id
+        a.click()
+    }
+</script>

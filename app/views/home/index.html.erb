@@ -40,13 +40,16 @@
             <div class="container">
                 <div class="row p-2 d-flex justify-content-evenly">
                     <% @beneficiaries.each do |beneficiary| %>
-                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2" style="width: 10rem;">
+                        <a href="<%= beneficiary_path(beneficiary) %>" class=" text-decoration-none card p-2 col-3 bg-whitesmoke-titles border-0 mb-2" style="width: 10rem;">
                             <%= image_tag "person.png" %>
                             <div class="card-body">
-                                <h5 class="card-title"><%= beneficiary.name.split(" ").first %></h5>
+                                <% names = beneficiary.name.split(" ") %>
+                                <% first_name = names.first %>
+                                <% last_name_initial = names.last.slice(0, 1) if names.length > 1 %>          
+                                <h5 class="card-title"><%= "#{first_name} #{last_name_initial}." %></h5>
                                 <p class="card-text fs-6">Vinculado à: 01-00212</p>
                             </div>
-                        </div>
+                        </a>
                     <% end %>
                 </div>
             </div>
