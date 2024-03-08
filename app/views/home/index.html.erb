@@ -17,7 +17,7 @@
                             <%= image_tag laptop.model == "A515-54-5526" ? "silver.png" : "black.png" %>                            
                             <div class="card-body">
                                 <h5 class="card-title"><%= laptop.listed_number[2] == "-" ? laptop.listed_number :  laptop.listed_number.insert(2, "-") %></h5>
-                                <p class="card-text fs-6">Vinculado à: Ninguem</p>
+                                <p class="card-text fs-6">Vinculado à: <%=linked?(laptop)%></p>
                             </div>
                         </a>
                     <% end %>
@@ -47,7 +47,7 @@
                                 <% first_name = names.first %>
                                 <% last_name_initial = names.last.slice(0, 1) if names.length > 1 %>          
                                 <h5 class="card-title"><%= "#{first_name} #{last_name_initial}." %></h5>
-                                <p class="card-text fs-6">Vinculado à: 01-00212</p>
+                                <p class="card-text fs-6">Vinculado à: <%=linked?(beneficiary)%></p>
                             </div>
                         </a>
                     <% end %>

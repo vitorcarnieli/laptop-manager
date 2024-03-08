@@ -1,6 +1,7 @@
 class BeneficiariesController < ApplicationController
   def index
     @beneficiaries = Beneficiary.all
+
   end
 
   def show
@@ -19,6 +20,13 @@ class BeneficiariesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def linked?(beneficiary)
+    if beneficiary.links.count > 0
+       beneficiary.links.last.end_date == nil ? "Ninguem" : beneficiary.links.last.laptop.listed_number
+    end
+    "Ninguem"
   end
 
 

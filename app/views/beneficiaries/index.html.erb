@@ -1,6 +1,6 @@
 <section class="container-fluid p-5">
     <div class="row h-100 justify-content-around">
-        <div class="col-5 bg-whitesmoke p-0 border rounded">
+        <div class="col-10 bg-whitesmoke p-0 border rounded">
             <div class="d-flex  bg-whitesmoke-titles">
                 <div class="col-3 p-3 text-center fw-light bg-laptopcard-select">
                     Todos
@@ -20,7 +20,7 @@
                             <%= image_tag("person.png") %>                            
                             <div class="card-body">
                                 <h5 class="card-title"><%= beneficiary.name.split(" ").first%></h5>
-                                <p class="card-text fs-6">Vinculado à: </p>
+                                <p class="card-text fs-6">Vinculado à: <%=linked?(beneficiary)%></p>
                             </div>
                         </div>
                     <% end %>

@@ -9,5 +9,6 @@ class Beneficiary < ApplicationRecord
   def as_json(options = {})
     super(options.merge(include: :links))
   end
+  
 
 end
