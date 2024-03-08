@@ -3,59 +3,60 @@
 
         <div class="col-8 bg-whitesmoke p-0 border rounded">
 
-
             <div class="d-flex  bg-whitesmoke-titles">
-                <% names = @beneficiary.name.split(" ") %>
-                <% first_name = names.first %>
-                <% last_name_initial = names.last.slice(0, 1) if names.length > 1 %>
-                <h1 class="display-3 mx-auto"><i class="bi bi-person"></i> <%= "#{first_name} #{last_name_initial}." %></h1>                
+                <h1 class="display-3 mx-auto"><i class="bi bi-laptop"></i> <%=  @laptop.listed_number.insert(2, "-")  %></h1>                
             </div>
             <div class="container p-5">
-                <div class="row">
+                <div class="row my-auto">
+                    <%= image_tag @laptop.model == "A515-54-5526" ? "silver.png" : "black.png", class: "col-4" %>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="form-group mb-4">
+                                <label for="">Número de Série</label>
+                                <input type="text" class="form-control" value="<%=  @laptop.serial_number %>"  disabled>
+                            </div>
+                            <div class="form-group col-4 mb-4">
+                                <label for="">Número de Tombamento</label>
+                                <input type="text" class="form-control" value="<%=  @laptop.listed_number[2] == "-" ? @laptop.listed_number :  @laptop.listed_number.insert(2, "-") %>"  disabled>
+                            </div>
+                            <div class="form-group col-4 mb-4">
+                                <label for="">Modelo</label>
+                                <input type="text" class="form-control" value="<%=  @laptop.model %>"  disabled>
+                            </div>
+                            <div class="form-group col-4 mb-4">
+                                <label for="">Estado</label>
+                                <input type="text" class="form-control" value=""  disabled>
+                            </div>
 
-                    <div class="form-group mb-4">
-                        <label for="">Nome Completo</label>
-                        <input type="email" class="form-control" value="<%= @beneficiary.name %>"  disabled>
-                    </div>
-                    <div class="form-group col-4 mb-4">
-                        <label for="">Número de Contato</label>
-                        <input type="email" class="form-control" value="<%= @beneficiary.contact_number %>"  disabled>
-                    </div>
-                    <div class="form-group col-4 mb-4">
-                        <label for="">Documento de Identificação</label>
-                        <input type="email" class="form-control" value="<%= @beneficiary.identification_document %>"  disabled>
-                    </div>
-                    <div class="form-group col-4 mb-4">
-                        <label for="">Tipo de Contrato</label>
-                        <input type="email" class="form-control" value="<%= @beneficiary.contract_type %>"  disabled>
+
+                        </div>
                     </div>
                 </div>
             </div>
 
-
             <div class="d-flex  bg-whitesmoke-titles">
-                <h1 class="display-3 mx-auto"><i class="bi bi-laptop"></i> Notebook</h1>                
+                <h1 class="display-3 mx-auto"><i class="bi bi-person"></i> Beneficiário</h1>                
             </div>
             <div class="container p-5">
                 <div class="row my-auto">
-                    <%= image_tag "undefined.png", class: "col-4" %>
+                    <%= image_tag "person.png", class: "col-4" %>
                     <div class="col-8">
                         <div class="row">
                             <div class="form-group mb-4">
                                 <label for="">Nome Completo</label>
-                                <input type="email" class="form-control" value="NXAX0AL002129Z00"  disabled>
+                                <input type="text" class="form-control" value="NXAX0AL002129Z00"  disabled>
                             </div>
                             <div class="form-group col-4 mb-4">
-                                <label for="">Número de Tombamento</label>
-                                <input type="email" class="form-control" value="014-00251"  disabled>
+                                <label for="">Número de Contato</label>
+                                <input type="text" class="form-control" value="014-00251"  disabled>
                             </div>
                             <div class="form-group col-4 mb-4">
-                                <label for="">Modelo</label>
-                                <input type="email" class="form-control" value="A5-5432-5G"  disabled>
+                                <label for="">Documento</label>
+                                <input type="text" class="form-control" value="A5-5432-5G"  disabled>
                             </div>
                             <div class="form-group col-4 mb-4">
-                                <label for="">Data de aquisição</label>
-                                <input type="email" class="form-control" value="00/00/0000"  disabled>
+                                <label for="">Tipo de Contrato</label>
+                                <input type="text" class="form-control" value="00/00/0000"  disabled>
                             </div>
                             <div class="col-4 mb-4">
                                 <button type="button" class="btn btn-secondary">Termo de aquisição <i class="bi bi-filetype-pdf"></i></button>

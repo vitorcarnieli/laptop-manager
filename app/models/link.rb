@@ -1,4 +1,4 @@
 class Link < ApplicationRecord
-  belongs_to :person
+  belongs_to :beneficiary
   belongs_to :laptop
 end

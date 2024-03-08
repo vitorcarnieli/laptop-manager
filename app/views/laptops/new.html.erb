@@ -1,0 +1,44 @@
+<section class="container-fluid p-5">
+    <div class="row h-100 justify-content-around">
+
+        <div class="col-8 bg-whitesmoke p-0 border rounded">
+
+
+            <div class="d-flex  bg-whitesmoke-titles"><p class="display-3 fw-lighter mx-auto my-auto">Cadastrar Notebook</p></div>
+            <div class="container p-5">
+                <div class="row">
+                    <%= form_with model: @laptop do |form| %>
+                    <div class="form-group mb-4">
+                        <%= form.label :serial_number, value: "Número de Série" %><br>
+                        <%= form.text_field :serial_number, class: "form-control" %>
+                        <% @laptop.errors.full_messages_for(:serial_number).each do |message| %>
+                        <div><%= message %></div>
+                        <% end %>
+                    </div>
+                    <div class="form-group mb-4">
+                        <%= form.label :listed_number, value: "Número de Tombamento" %><br>
+                        <%= form.text_field :listed_number, class: "form-control " %>
+                        <% @laptop.errors.full_messages_for(:listed_number).each do |message| %>
+                        <div><%= message %></div>
+                        <% end %>
+                    </div>
+                    <div class="form-group mb-4">
+                        <%= form.label :identification_document, value: "Tipo de Contrato" %><br>
+                        <%= form.select :model, options_for_select([['Prata', 'A515-54-5526'], ['Preto', 'A515-54-55L0']], selected: @laptop.model), {}, class: "form-control form-select" %>                        
+                        <% @laptop.errors.full_messages_for(:model).each do |message| %>
+                        <div><%= message %></div>
+                        <% end %>
+                    </div>
+                    <div >
+                        <%= form.submit  %>
+                    </div>
+                    <% end %>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

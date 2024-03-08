@@ -1,2 +1,48 @@
-<h1>Laptops#index</h1>
-<p>Find me in app/views/laptops/index.html.erb</p>
+<section class="container-fluid p-5">
+    <div class="row h-100 justify-content-around">
+        <div class="col-5 bg-whitesmoke p-0 border rounded">
+            <div class="d-flex  bg-whitesmoke-titles">
+                <div class="col-3 p-3 text-center fw-light bg-laptopcard-select">
+                    Todos
+                </div>
+                <div class="col-3 p-3 text-center fw-light">
+                    Vinculados
+                </div>
+                <div class="col-3 p-3 text-center fw-light">
+                    Não Vinculados
+                </div>
+                <%= link_to "Cadastrar", new_laptop_path, class: "fw-light text-dark text-decoration-none col-3 p-3 text-center" %>
+            </div>
+            <div class="container">
+                <div class="row p-2 d-flex justify-content-evenly">
+                    <% @laptops.each do |laptop| %>
+                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 laptop-card" onclick="redirect(<%= laptop.id %>)" style="width: 10rem;">
+                            <%= image_tag laptop.model == "A515-54-5526" ? "silver.png" : "black.png" %>                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%=  laptop.listed_number[2] == "-" ? laptop.listed_number :  laptop.listed_number.insert(2, "-") %></h5>
+                                <p class="card-text fs-6">Vinculado à: </p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<script>
+
+    function redirect(id) {
+        var a = document.createElement("a")
+        a.href = "laptops/"+id
+        a.click()
+    }
+
+    function print(object) {
+        console.log(object);
+    }
+
+</script>

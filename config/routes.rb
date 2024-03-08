@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   root "home#index"
+  resources :laptops
   resources :beneficiaries
+  resources :links
+
   get 'home/index'
   get 'links/index'
   get 'laptops/index'

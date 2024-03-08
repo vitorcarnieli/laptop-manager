@@ -13,13 +13,13 @@
             <div class="container">
                 <div class="row p-2 d-flex justify-content-evenly">
                     <% @laptops.each do |laptop| %>
-                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 laptop-card" style="width: 10rem;">
-                            <%= image_tag(laptop.model == "A514-54B" ? "black.png" : "silver.png") %>                            
+                        <a href="<%= laptop_path(laptop) %>" class="text-decoration-none card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 laptop-card" style="width: 10rem;">
+                            <%= image_tag laptop.model == "A515-54-5526" ? "silver.png" : "black.png" %>                            
                             <div class="card-body">
-                                <h5 class="card-title"><%= laptop.listed_number %></h5>
+                                <h5 class="card-title"><%= laptop.listed_number[2] == "-" ? laptop.listed_number :  laptop.listed_number.insert(2, "-") %></h5>
                                 <p class="card-text fs-6">Vinculado à: Ninguem</p>
                             </div>
-                        </div>
+                        </a>
                     <% end %>
                 </div>
 

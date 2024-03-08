@@ -1,2 +1,48 @@
-<h1>Links#index</h1>
-<p>Find me in app/views/links/index.html.erb</p>
+<section class="container-fluid p-5">
+    <div class="row h-100 justify-content-around">
+        <div class="col-5 bg-whitesmoke p-0 border rounded">
+            <div class="d-flex  bg-whitesmoke-titles">
+                <div class="col-3 p-3 text-center fw-light bg-laptopcard-select">
+                    Todos
+                </div>
+                <div class="col-3 p-3 text-center fw-light">
+                    Ativos
+                </div>
+                <div class="col-3 p-3 text-center fw-light">
+                    Finalizados
+                </div>
+                <%= link_to "Criar Vínculo", new_link_path, class: "fw-light text-dark text-decoration-none col-3 p-3 text-center" %>
+            </div>
+            <div class="container">
+                <div class="row p-2 d-flex justify-content-evenly">
+                    <% @links.each do |link| %>
+                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 beneficiary-card" onclick="redirect(<%= beneficiary.id %>)" style="width: 10rem;">
+                            <%= image_tag("link.png") %>                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%= %></h5>
+                                <p class="card-text fs-6">Estado: </p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<script>
+
+    function redirect(id) {
+        var a = document.createElement("a")
+        a.href = "beneficiaries/"+id
+        a.click()
+    }
+
+    function print(object) {
+        console.log(object);
+    }
+
+</script>

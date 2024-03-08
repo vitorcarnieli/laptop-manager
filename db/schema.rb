@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_185050) do
+ActiveRecord::Schema[7.1].define(version: 0) do
   create_table "beneficiaries", force: :cascade do |t|
     t.string "name"
     t.string "identification_document"
@@ -30,15 +30,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_185050) do
 
   create_table "links", force: :cascade do |t|
     t.date "init_date"
-    t.integer "person_id", null: false
+    t.integer "beneficiary_id", null: false
     t.integer "laptop_id", null: false
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["laptop_id"], name: "index_links_on_laptop_id"
-    t.index ["person_id"], name: "index_links_on_person_id"
+    t.index ["beneficiary_id"], name: "index_links_on_beneficiary_id"
   end
 
   add_foreign_key "links", "laptops"
-  add_foreign_key "links", "people"
+  add_foreign_key "links", "beneficiaries"
 end
