@@ -6,8 +6,21 @@
 
             <div class="d-flex  bg-whitesmoke-titles"><p class="display-3 fw-lighter mx-auto my-auto">Criar Vinculo</p></div>
             <div class="container p-5">
-                <div class="row">
+                <div class="row ">
+                    <%= form_for @link do |form| %>
+                        <div class="form-group mb-3">
+                            <%= form.label :beneficiary_id, value: "Beneficiário" %>
+                            <%= form.select :beneficiary_id, options_for_select(@beneficiaries.map { |b| [b.name, b.id] }, selected: @link.beneficiary_id), {}, class: "form-control form-select", id: "kkk", onclick: "test()" %>
+                        </div>
+                        <div class="form-group mb-3">
+                            <%= form.label :laptop_id, value: "Notebook" %>
+                            <%= form.select :laptop_id, options_for_select(@laptops.map { |l| [l.listed_number.insert(2, "-"), l.id] }, selected: @link.laptop_id), {}, class: "form-control form-select" %>
+                        </div>
 
+                        <div class="actions">
+                            <%= form.submit "Salvar", class: "btn btn-primary" %>
+                        </div>
+                    <% end %>
 
 
 
@@ -17,4 +30,9 @@
         </div>
     </div>
 </section>
+<script>
 
+
+
+
+</script>

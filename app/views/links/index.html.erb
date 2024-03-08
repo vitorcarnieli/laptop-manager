@@ -1,6 +1,6 @@
 <section class="container-fluid p-5">
     <div class="row h-100 justify-content-around">
-        <div class="col-5 bg-whitesmoke p-0 border rounded">
+        <div class="col-10 bg-whitesmoke p-0 border rounded">
             <div class="d-flex  bg-whitesmoke-titles">
                 <div class="col-3 p-3 text-center fw-light bg-laptopcard-select">
                     Todos
@@ -16,13 +16,16 @@
             <div class="container">
                 <div class="row p-2 d-flex justify-content-evenly">
                     <% @links.each do |link| %>
-                        <div class="card p-2 col-3 bg-whitesmoke-titles border-0 mb-2 beneficiary-card" onclick="redirect(<%= beneficiary.id %>)" style="width: 10rem;">
+                        <% names = link.beneficiary.name.split(" ") %>
+                        <% first_name = names.first %>
+                        <% last_name_initial = names.last.slice(0, 1) if names.length > 1 %>
+                        <a class="text-decoration-none card p-2 col-6 bg-whitesmoke-titles border-0 mb-2 beneficiary-card" style="width: 15rem;">
                             <%= image_tag("link.png") %>                            
                             <div class="card-body">
-                                <h5 class="card-title"><%= %></h5>
-                                <p class="card-text fs-6">Estado: </p>
+                                <h5 class="card-title fs-6 text-center"><%= "#{first_name} #{last_name_initial}." %> <i class="bi bi-link-45deg"></i> <%= link.laptop.listed_number.insert(2, "-") %></h5>
+                                <p class="card-text fs-6">Estado: <%= link.end_date == nil ? "Ativo" : "Finalizado" %></p>
                             </div>
-                        </div>
+                        </a>
                     <% end %>
                 </div>
 
